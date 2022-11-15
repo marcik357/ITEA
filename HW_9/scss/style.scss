@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap');
+@import 'reset';
+
+$color-main: #000;
+$bg-block: #fff;
+
+.wrapper {
+    font-family: 'Work Sans', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    font-size: 0.875rem;
+    line-height: 1rem;
+    color: $color-main;
+    background: #FFB084;
+}
