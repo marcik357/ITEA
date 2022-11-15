@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITEA HW_6</title>
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="wrapper">
+        
+        <main class="page">
+            <div class="page__container">
+                <div class="page__registration registration">
+                    <header class="registration__header header">
+                        <a class="header__logo" href="">
+                            <h1 class="header__text">Kreativ</h1>
+                        </a>
+                        <ul class="header__nav nav">
+                            <li class="nav__item">
+                                <a class="nav__link" href="#">Home</a>
+                            </li>
+                            <li class="nav__item">
+                                <a class="nav__link" href="#">Contact</a>
+                            </li>
+                        </ul>
+                    </header>
+
+                    <form class="registration__form form-reg" action="#">
+                        <p class="form-reg__title">Let's get you started</p>
+                        <div class="form-reg__line">
+                            <label class="form-reg__label" for="name">Full name</label>
+                            <input required class="form-reg__inp" placeholder="Ade Tiger" type="text" name="name" id="inp-name">
+                        </div>
+                        <div class="form-reg__line">
+                            <label class="form-reg__label" for="email">Email address</label>
+                            <input required class="form-reg__inp" placeholder="yourname@email.com" type="email" name="email" id="inp-email">
+                        </div>
+                        <div class="form-reg__line">
+                            <label class="form-reg__label" for="phone">Phone number</label>
+                            <input required class="form-reg__inp" placeholder="+234 800 2738 9700" type="tel" name="phone" id="ipt-phone">
+                        </div>
+                        <div class="form-reg__line">
+                            <label class="form-reg__label" for="password">Create password</label>
+                            <input required class="form-reg__inp" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" type="password" name="password" id="inp-password">
+                            <button type="button" class="form-reg__eye"></button>
+                            <p class="form-reg__text">Password must contain a minimum of 8 characters</p>
+                            <p class="form-reg__text">Password must contain at least one symbol e.g. @, !</p>
+                        </div>
+                        <div class="form-reg__line">
+                            <label class="form-reg__label" for="location">Location<span>(Optional)</span></label>
+                            <select required  class="form-reg__inp form-reg__select" name="location" id="location">
+                                <option selected disabled>Select Location</option>
+                                <option value="Київ">Київ</option>
+                                <option value="Львів">Львів</option>
+                                <option value="Дніпро">Дніпро</option>
+                                <option value="Харків">Харків</option>
+                                <option value="Івано-Франківськ">Івано-Франківськ</option>
+                                <option value="Тернопіль">Тернопіль</option>
+                                <option value="Вінниця">Вінниця</option>
+                                <option value="Запоріжжя">Запоріжжя</option>
+                                <option value="Одеса">Одеса</option>
+                                <option value="Хмельницький">Хмельницький</option>
+                                <option value="Рівне">Рівне</option>
+                                <option value="Луцьк">Луцьк</option>
+                                <option value="Полтава">Полтава</option>
+                                <option value="Кропивницький">Кропивницький</option>
+                                <option value="Черкаси">Черкаси</option>
+                                <option value="Житомир">Житомир</option>
+                                <option value="Чернівці">Чернівці</option>
+                                <option value="Чернігів">Чернігів</option>
+                                <option value="Миколаїв">Миколаїв</option>
+                                <option value="Суми">Суми</option>
+                                <option value="Ужгород">Ужгород</option>
+                                <option value="Херсон">Херсон</option>
+                                <option value="Донецьк">Донецьк</option>
+                                <option value="Луганськ">Луганськ</option>
+                                <option value="Сімферополь">Сімферополь</option>
+                            </select>
+                        </div>
+                        <button class="form-reg__submit" type="submit">Sign Up</button>
+                        <p class="form-reg__log-switch">
+                            Already a user?<a href="#" class="form-reg__login">Login</a>
+                        </p>
+                    </form>
+
+                    <div class="registration__decor decor-reg">
+                        <!-- <div class="decor-reg__wrapper"> -->
+                            <blockquote class="decor-reg__blockquote">
+                                “Creativity is intelligence having fun”
+                                <div class="decor-reg__author">- Albert Einstein</div>
+                            </blockquote>
+                        <!-- </div> -->
+                    </div>
+                </div>
+            </div>
+            
+        </main>
+
+        <!-- <footer class="footer"></footer> -->
+
+    </div>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

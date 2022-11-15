@@ -1,0 +1,90 @@
+.wrapper {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Arial", sans-serif;
+  text-transform: uppercase;
+  gap: 100px;
+}
+
+.img {
+  margin-bottom: 50px;
+}
+
+.radio {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 100px;
+}
+
+.img:has(+ .radio #radio-1:checked) {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.img:has(+ .radio #radio-2:checked) {
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+}
+
+.second-v {
+  width: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: #ccc;
+  border-radius: 10px;
+  position: relative;
+  border: 2px solid #000;
+}
+.second-v .block {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
+  text-align: center;
+}
+.second-v label {
+  padding: 10px 20px;
+  display: inline-block;
+  position: relative;
+  color: rgb(153, 153, 153);
+}
+
+[name=light] {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.second-v:after {
+  position: absolute;
+  content: "";
+  width: 50%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 5px;
+  background: #000;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  background: url("../img/night.jpg") center/cover no-repeat;
+}
+
+.second-v:has(> .block #night:checked):after {
+  left: 50%;
+  background: url("../img/day.jpg") center/cover no-repeat;
+}

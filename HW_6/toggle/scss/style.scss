@@ -1,0 +1,74 @@
+.wrapper {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    text-transform: uppercase;
+    gap: 100px;
+}
+
+.img {
+    margin-bottom: 50px;
+}
+
+.radio {
+    display: flex;
+    gap: 100px;
+}
+
+.img:has(+.radio #radio-1:checked) {
+    transform: rotateY(180deg);
+}
+
+.img:has(+.radio #radio-2:checked) {
+    transform: rotateY(0deg);
+}
+
+
+.second-v {
+    width: 200px;
+    display: flex;
+    background: #ccc;
+    border-radius: 10px;
+    position: relative;
+    border: 2px solid #000;
+
+    .block {
+        flex: 0 0 50%;
+        text-align: center;
+    }
+
+    label {
+        padding: 10px 20px;
+        display: inline-block;
+        position: relative;
+        color: rgb(153, 153, 153);
+    }
+}
+
+[name="light"] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+.second-v:after {
+    position: absolute;
+    content: '';
+    width: 50%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 5px;
+    background: #000;
+    transition: all .3s;
+    background: url('../img/night.jpg') center / cover no-repeat;
+}
+
+.second-v:has(> .block #night:checked):after {
+    left: 50%;
+    background: url('../img/day.jpg') center / cover no-repeat;
+}
