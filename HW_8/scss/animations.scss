@@ -1,0 +1,238 @@
+@keyframes appearance-left {
+    0% {
+        transform: translateX(-50vw);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes appearance-right {
+    0% {
+        transform: translateX(+50vw);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes dance-1 {
+    0% {
+        left: 0;
+        top: 0;
+    }
+
+    25% {
+        left: 50%;
+        top: 0;
+    }
+
+    50% {
+        left: 50%;
+        top: 46vh;
+    }
+
+    75% {
+        left: 0;
+        top: 46vh;
+    }
+
+    100% {
+        left: 0;
+        top: 0;
+    }
+}
+
+@keyframes dance-2 {
+    0% {
+        left: 0;
+        top: 0;
+    }
+
+    25% {
+        left: 0;
+        top: 46vh;
+    }
+
+    50% {
+        left: -50%;
+        top: 46vh;
+    }
+
+    75% {
+        left: -50%;
+        top: 0;
+    }
+
+    100% {
+        left: 0;
+        top: 0;
+    }
+}
+
+@keyframes dance-3 {
+    0% {
+        left: 0;
+        top: 0;
+    }
+
+    25% {
+        left: 0;
+        top: -46vh;
+    }
+
+    50% {
+        left: 50%;
+        top: -46vh;
+    }
+
+    75% {
+        left: 50%;
+        top: 0;
+    }
+
+    100% {
+        left: 0;
+        top: 0;
+    }
+}
+
+@keyframes dance-4 {
+    0% {
+        left: 0;
+        top: 0;
+    }
+
+    25% {
+        left: -50%;
+        top: 0;
+    }
+
+    50% {
+        left: -50%;
+        top: -46vh;
+    }
+
+    75% {
+        left: 0;
+        top: -46vh;
+    }
+
+    100% {
+        left: 0;
+        top: 0;
+    }
+}
+
+
+
+
+@keyframes dance-1-s {
+    0% {
+        left: 0;
+        top: 0;
+    }
+
+    25% {
+        left: 50%;
+        top: 0;
+    }
+
+    50% {
+        left: 50%;
+        top: 45vh;
+    }
+
+    75% {
+        left: 0;
+        top: 45vh;
+    }
+
+    100% {
+        left: 0;
+        top: 0;
+    }
+}
+
+@keyframes dance-2-s {
+    0% {
+        left: 0;
+        top: 0;
+    }
+
+    25% {
+        left: 0;
+        top: 45vh;
+    }
+
+    50% {
+        left: -50vw;
+        top: 45vh;
+    }
+
+    75% {
+        left: -50vw;
+        top: 0;
+    }
+
+    100% {
+        left: 0;
+        top: 0;
+    }
+}
+
+@keyframes dance-3-s {
+    0% {
+        left: 0;
+        top: 0;
+    }
+
+    25% {
+        left: 0;
+        top: -44.5vh;
+    }
+
+    50% {
+        left: 50vw;
+        top: -44.5vh;
+    }
+
+    75% {
+        left: 50vw;
+        top: 0;
+    }
+
+    100% {
+        left: 0;
+        top: 0;
+    }
+}
+
+@keyframes dance-4-s {
+    0% {
+        left: 0;
+        top: 0;
+    }
+
+    25% {
+        left: -50vw;
+        top: 0;
+    }
+
+    50% {
+        left: -50vw;
+        top: -44.5vh;
+    }
+
+    75% {
+        left: 0;
+        top: -44.5vh;
+    }
+
+    100% {
+        left: 0;
+        top: 0;
+    }
+}
