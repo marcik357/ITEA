@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITEA HW_6</title>
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/animation.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <a class="header__logo" href="#">
+                <img class="header__img" src="./img/logo.png" alt="Dapper Bully">
+            </a>
+            <nav class="header__nav nav">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a class="nav__link" href="#">Appointment</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="#">Gallery</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="#">Services</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="#">Team</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="#">Reviews</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="page">
+
+            <section class="page__gallery gallery">
+                <div class="gallery__wrapper">
+                    <div class="gallery__item">
+                        <img class="gallery__img" src="./img/content/gallery-5.jpg" alt="barber shop">
+                    </div>
+                    <div class="gallery__item">
+                        <img class="gallery__img" src="./img/content/gallery-1.jpg" alt="barber shop">
+                    </div>
+                    <div class="gallery__item">
+                        <img class="gallery__img" src="./img/content/gallery-3.jpg" alt="barber shop">
+                    </div>
+                    <div class="gallery__item">
+                        <img class="gallery__img" src="./img/content/gallery-6.jpg" alt="barber shop">
+                    </div>
+                    <div class="gallery__item">
+                        <img class="gallery__img" src="./img/content/gallery-2.jpg" alt="barber shop">
+                    </div>
+                    <div class="gallery__item">
+                        <img class="gallery__img" src="./img/content/gallery-4.jpg" alt="barber shop">
+                    </div>
+                </div>
+            </section>
+
+            <section class="page__services services">
+                <div class="services__items">
+                    <div class="services__item service-item">
+                        <div class="service-item__img">
+                            <img class="service-item__pic" src="./img/content/services-1.jpg" alt="Hair Styling">
+                        </div>
+                        <h3 class="service-item__title">Hair Styling</h3>
+                    </div>
+                    <div class="services__item service-item">
+                        <div class="service-item__img">
+                            <img class="service-item__pic" src="./img/content/services-2.jpg" alt="Beard Trimming">
+                        </div>
+                        <h3 class="service-item__title">Beard Trimming</h3>
+                    </div>
+                    <div class="services__item service-item">
+                        <div class="service-item__img">
+                            <img class="service-item__pic" src="./img/content/services-3.jpg" alt="Smooth Shave">
+                        </div>
+                        <h3 class="service-item__title">Smooth Shave</h3>
+                    </div>
+                    <div class="services__item service-item">
+                        <div class="service-item__img">
+                            <img class="service-item__pic" src="./img/content/services-4.jpg" alt="Hair Straightening">
+                        </div>
+                        <h3 class="service-item__title">Hair Straightening</h3>
+                    </div>
+                </div>
+
+                <div class="services__decor">
+                    <img class="services__img" src="./img/content/services-bg.jpg" alt="Barber">
+                </div>
+            </section>
+
+            <section class="page__team team">
+                <h2 class="team__title">Meet Our Highly Skilled Experts</h2>
+                <div class="team__list">
+                    <div class="team__item">
+                        <img class="team__img" src="./img/content/team-1.jpg" alt="Meredith">
+                        <div class="team__name">Meredith</div>
+                    </div>
+                    <div class="team__item">
+                        <img class="team__img" src="./img/content/team-2.jpg" alt="Jason">
+                        <div class="team__name">Jason</div>
+                    </div>
+                    <div class="team__item">
+                        <img class="team__img" src="./img/content/team-3.jpg" alt="Ryan">
+                        <div class="team__name">Ryan</div>
+                    </div>
+                    <div class="team__item">
+                        <img class="team__img" src="./img/content/team-4.jpg" alt="James">
+                        <div class="team__name">James</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="page__contacts contacts">
+                <div class="contacts__container">
+                    <div class="contacts__top">
+                        <form action="#" class="contacts__form form">
+                            <h2 class="form__title">Get in touch with Us and send a Message</h2>
+                            <fieldset class="form__inner">
+                                <input class="form__input" type="text" name="name" id="name" placeholder="Name">
+                                <input class="form__input" type="email" name="email" id="email" placeholder="Email">
+                                <textarea class="form__textarea" name="message" id="message"placeholder="Message"></textarea>
+                            </fieldset>
+                        </form>
+                        <iframe class="contacts__map"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10177.744843896822!2d-73.96310993045712!3d40.67701730406808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b325d552019%3A0x523ad4960a13597d!2s836%20Bergen!5e0!3m2!1sru!2sua!4v1667404558952!5m2!1sru!2sua"
+                            style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div class="contacts__bottom">
+                        <div class="contacts__adress">
+                            <a class="contacts__link" href="mailto:kumarpratiyush1405@gmail.com">
+                                Email :<span class="contacts__text">kumarpratiyush1405@gmail.com</span>
+                            </a>
+                            <a class="contacts__link" href="tel:+972723429834">
+                                Phone :<span class="contacts__text">+(972) 723429834</span>
+                            </a>
+                            <a class="contacts__link" href="https://goo.gl/maps/w4hfwz49fsGwzr4KA">
+                                Headquarters :<span class="contacts__text">836th Avenue, 3rd Floor, New York, New York</span>
+                            </a>
+                        </div>
+                        <div class="contacts__opening-hours">
+                            <div class="contacts__title">Opening Hours</div>
+                            <div class="contacts__text">Monday - Friday : 10:00 am - 05:00 pm</div>
+                            <div class="contacts__text">Saturday : 10:00 am - 02:00 pm</div>
+                        </div>
+                        <div class="contacts__social">
+                            <div class="contacts__title">Connect With Us On</div>
+                            <a href="#" class="contacts__text">Instagram</a>
+                            <a href="#" class="contacts__text">Facebook</a>
+                            <a href="#" class="contacts__text">Twitter</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            
+        </main>
+
+        <!-- <footer class="footer"></footer> -->
+
+    </div>
+</body>
+
+</html>
