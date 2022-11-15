@@ -1,0 +1,245 @@
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+1&family=Marcellus+SC&family=Roboto:wght@400;700&display=swap");
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.wrapper {
+  min-height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow: hidden;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 160%;
+}
+.wrapper > main {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+.wrapper > * {
+  min-width: 0;
+}
+
+[class*=__container] {
+  margin: 0 auto;
+  padding: 0 15px;
+  max-width: 1300px;
+}
+
+.logo {
+  text-align: center;
+}
+.logo__word {
+  font-family: "M PLUS 1", sans-serif;
+  font-size: 48px;
+  line-height: 70px;
+  letter-spacing: 0.1em;
+}
+.logo__first-part {
+  color: #3E45E8;
+}
+.logo__second-part {
+  color: #E8C23E;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 157.3%;
+  color: #000;
+  position: relative;
+}
+.title::before {
+  content: "";
+  position: absolute;
+  background: #3E45E8;
+  width: 402px;
+  height: 5px;
+  left: 0;
+}
+
+.page__main {
+  padding: 195px 0 307px;
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(20, 18, 18, 0.7)), to(rgba(20, 18, 18, 0.7))), url(../img/content/main-bg.jpg) center center/cover no-repeat;
+  background: -o-linear-gradient(bottom, rgba(20, 18, 18, 0.7), rgba(20, 18, 18, 0.7)), url(../img/content/main-bg.jpg) center center/cover no-repeat;
+  background: linear-gradient(0deg, rgba(20, 18, 18, 0.7), rgba(20, 18, 18, 0.7)), url(../img/content/main-bg.jpg) center center/cover no-repeat;
+}
+.page__places {
+  padding: 72px 0 37px;
+}
+.page__support {
+  padding: 37px 0 21px;
+}
+
+.header__logo {
+  padding: 25px 0 31px;
+}
+
+.main__title {
+  max-width: 1075px;
+  padding-left: 38px;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 70px;
+  color: #FFFFFF;
+  position: relative;
+}
+.main__title:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 22px;
+  height: 136px;
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.2)), to(rgba(0, 0, 0, 0.2))), -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.2)), to(rgba(0, 0, 0, 0.2))), #1E8DF2;
+  background: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), -o-linear-gradient(bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #1E8DF2;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #1E8DF2;
+}
+.main__title:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 147px;
+  width: 22px;
+  height: 136px;
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.2)), to(rgba(0, 0, 0, 0.2))), -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.2)), to(rgba(0, 0, 0, 0.2))), #FBE201;
+  background: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), -o-linear-gradient(bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #FBE201;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #FBE201;
+}
+
+.places__title {
+  margin-bottom: 58px;
+}
+.places__title::before {
+  bottom: -25px;
+}
+.cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 15px;
+}
+.cards__item {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 391px;
+          flex: 0 1 391px;
+  -webkit-box-shadow: 0px 4px 57px 3px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 57px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  overflow: hidden;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.cards__item:hover {
+  scale: 1.05;
+  -webkit-box-shadow: 0px 4px 57px 3px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 4px 57px 3px rgba(0, 0, 0, 0.15);
+}
+
+.card {
+  min-height: 481px;
+}
+.card__img {
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+.card__img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.card__info {
+  padding: 0 10px 10px;
+}
+.card__title {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 157.3%;
+  color: #1E8DF2;
+  margin-bottom: 10px;
+}
+.card__description {
+  font-size: 20px;
+  line-height: 157.3%;
+  color: #E8C23E;
+}
+
+.support__title {
+  margin-bottom: 62px;
+  text-align: center;
+}
+.support__title::before {
+  bottom: -21px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+.support__img {
+  text-align: center;
+  margin-bottom: 41px;
+}
+.support__img img {
+  max-width: 100%;
+}
+.support__btn {
+  display: block;
+  margin: 0 auto;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 157.3%;
+  color: #FFFFFF;
+  background: #2A61F0;
+  padding: 10px 92px;
+}
+
+.footer {
+  background: #2F4A4B;
+  padding: 0 0 27px;
+}
+.footer__logo {
+  margin-bottom: 31px;
+}
+.footer__mail, .footer__tel {
+  font-family: "Marcellus SC", serif;
+  margin-bottom: 21px;
+  font-size: 36px;
+  line-height: 45px;
+  letter-spacing: 0.1em;
+  color: #A89D9D;
+  text-align: center;
+  margin-bottom: 21px;
+}
+.footer__tel {
+  margin-bottom: 26px;
+}
+.footer__social {
+  margin: 0 auto;
+}
+
+.social__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.social__item img {
+  border-radius: 50%;
+}
