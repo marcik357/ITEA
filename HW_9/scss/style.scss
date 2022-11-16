@@ -2,6 +2,10 @@
 @import 'reset';
 
 $color-main: #000;
+$color-accent-1: #29A71E;
+$color-accent-2: #E13535;
+$color-accent-3: #3675B0;
+$bg-section: #FFB084;
 $bg-block: #fff;
 
 .wrapper {
@@ -11,5 +15,236 @@ $bg-block: #fff;
     font-size: 0.875rem;
     line-height: 1rem;
     color: $color-main;
-    background: #FFB084;
+    background: $bg-section;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+// ===================================================
+
+
+.title {
+    font-weight: 700;
+    margin-bottom: 7px;
+}
+
+.list {
+
+    // .list__item
+    &__item {
+        padding-left: 9px;
+        display: flex;
+        align-items: flex-start;
+        gap: 9px;
+
+        &::before {
+            line-height: 1rem;
+            content: '';
+            flex: 0 0 4px;
+            width: 4px;
+            height: 4px;
+            margin-top: 6px;
+            border-radius: 50%;
+            background: $color-main;
+        }
+    }
+}
+
+
+// ===================================================
+
+
+.user {
+    display: grid;
+    grid-template: auto / 250px 189px 189px;
+    column-gap: 22px;
+    row-gap: 7px;
+    align-items: start;
+
+    // .user__block
+    &__block {
+        background: $bg-block;
+        box-shadow: 7px 7px 0px #000000;
+        border-radius: 20px;
+        padding: 15px 25px;
+    }
+
+    // .user__main
+    &__main {
+        grid-area: 1 / 1 / 4 / 2;
+    }
+
+
+    // .user__blockquote
+    &__blockquote {
+        grid-area: 4 / 1;
+        align-self: end;
+    }
+
+    // .user__bio
+    &__bio {
+        grid-area: 2 / -1 / 1 / 2;
+    }
+
+    // .user__goals
+    &__goals {
+        grid-area: 2 / 2 / 3 / 3;
+        box-shadow: 7px 7px 0px $color-accent-1;
+    }
+
+    // .user__dream-companies
+    &__dream-companies {
+        grid-area: 3 /2 /5 /3;
+        align-self: stretch;
+        box-shadow: 7px 7px 0px $color-accent-3;
+    }
+
+    // .user__frustrations
+    &__frustrations {
+        grid-area: 2 / 3 / 4 / 4;
+        box-shadow: 7px 7px 0px $color-accent-2;
+    }
+
+    // .user__personality
+    &__personality {
+        grid-area: 4 / 3;
+    }
+}
+
+.main {
+    font-size: 0.75rem;
+    line-height: 0.875rem;
+
+    & > *:not(:first-of-type, :last-of-type) {
+        margin-bottom: 14px;
+    }
+
+    // .main__title
+    &__title {
+        font-size: 1.5rem;
+        line-height: 1.75rem;
+        text-align: center;
+        margin-bottom: 17px;
+    }
+
+    // .main__avatar
+    &__avatar {
+        margin: 0 auto 17px;
+        border-radius: 50%;
+        border: 1px solid #EB996B;
+        width: 101px;
+        height: 101px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    // .main__img
+    &__img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    // .main__text
+    &__text {
+        font-weight: 600;
+    }
+
+    // .main__age
+    &__age {
+        display: inline-block;
+        margin-right: 17px;
+    }
+
+    // .main__pronouns
+    &__pronouns {
+        display: inline-block;
+    }
+
+    // .main__education
+    &__education {}
+
+    // .main__occupation
+    &__occupation {}
+
+    // .main__location
+    &__location {}
+
+    // .main__ability
+    &__ability {}
+}
+
+.blockquote {
+
+    // .blockquote__text
+    &__text {
+        font-weight: 700;
+    }
+}
+
+.bio {
+
+    // .bio__title
+    &__title {}
+
+    // .bio__text
+    &__text {}
+}
+
+.goals {
+
+    // .goals__title
+    &__title {
+        color: $color-accent-1
+    }
+
+    // .goals__list
+    &__list {}
+
+    // .goals__item
+    &__item {}
+}
+
+.dream-companies {
+
+    // .dream-companies__title
+    &__title {
+        color: $color-accent-3;
+    }
+
+    // .dream-companies__list
+    &__list {}
+}
+
+.frustrations {
+
+    // .frustrations__title
+    &__title {
+        color: $color-accent-2;
+    }
+
+    // .frustrations__list
+    &__list {}
+}
+
+.personality {
+
+    // .personality__title
+    &__title {}
+
+    // .personality__list
+    &__list {}
+
+    // .personality__item
+    &__item {
+        display: inline-block;
+        &::before {
+            content: '#';
+        }
+    }
 }

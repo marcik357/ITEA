@@ -71,4 +71,150 @@ html {
   line-height: 1rem;
   color: #000;
   background: #FFB084;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.title {
+  font-weight: 700;
+  margin-bottom: 7px;
+}
+
+.list__item {
+  padding-left: 9px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  gap: 9px;
+}
+.list__item::before {
+  line-height: 1rem;
+  content: "";
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 4px;
+          flex: 0 0 4px;
+  width: 4px;
+  height: 4px;
+  margin-top: 6px;
+  border-radius: 50%;
+  background: #000;
+}
+
+.user {
+  display: grid;
+  grid-template: auto/250px 189px 189px;
+  -webkit-column-gap: 22px;
+     -moz-column-gap: 22px;
+          column-gap: 22px;
+  row-gap: 7px;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+}
+.user__block {
+  background: #fff;
+  -webkit-box-shadow: 7px 7px 0px #000000;
+          box-shadow: 7px 7px 0px #000000;
+  border-radius: 20px;
+  padding: 15px 25px;
+}
+.user__main {
+  grid-area: 1/1/4/2;
+}
+.user__blockquote {
+  grid-area: 4/1;
+  align-self: end;
+}
+.user__bio {
+  grid-area: 2/-1/1/2;
+}
+.user__goals {
+  grid-area: 2/2/3/3;
+  -webkit-box-shadow: 7px 7px 0px #29A71E;
+          box-shadow: 7px 7px 0px #29A71E;
+}
+.user__dream-companies {
+  grid-area: 3/2/5/3;
+  align-self: stretch;
+  -webkit-box-shadow: 7px 7px 0px #3675B0;
+          box-shadow: 7px 7px 0px #3675B0;
+}
+.user__frustrations {
+  grid-area: 2/3/4/4;
+  -webkit-box-shadow: 7px 7px 0px #E13535;
+          box-shadow: 7px 7px 0px #E13535;
+}
+.user__personality {
+  grid-area: 4/3;
+}
+
+.main {
+  font-size: 0.75rem;
+  line-height: 0.875rem;
+}
+.main > *:not(:first-of-type, :last-of-type) {
+  margin-bottom: 14px;
+}
+.main__title {
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+  text-align: center;
+  margin-bottom: 17px;
+}
+.main__avatar {
+  margin: 0 auto 17px;
+  border-radius: 50%;
+  border: 1px solid #EB996B;
+  width: 101px;
+  height: 101px;
+  overflow: hidden;
+  position: relative;
+}
+.main__img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.main__text {
+  font-weight: 600;
+}
+.main__age {
+  display: inline-block;
+  margin-right: 17px;
+}
+.main__pronouns {
+  display: inline-block;
+}
+.blockquote__text {
+  font-weight: 700;
+}
+
+.goals__title {
+  color: #29A71E;
+}
+.dream-companies__title {
+  color: #3675B0;
+}
+.frustrations__title {
+  color: #E13535;
+}
+.personality__item {
+  display: inline-block;
+}
+.personality__item::before {
+  content: "#";
 }
