@@ -4,6 +4,8 @@ function createParagraph() {
 function createDiv() {
     return document.createElement('div')
 }
+
+
 // Сделайте функцию, которая принимает параметром число от 1 до 7, а возвращает день недели на Украинском языке
 function showDay(num) {
     let days = ["Понеділок", "Вівторок", "Середа", "Четвер", "П'ятниця", "Субота", "Неділя"];
@@ -88,64 +90,89 @@ document.body.insertAdjacentHTML("beforeend", `<hr>`)
 
 
 // Если переменная a больше нуля - то в ggg запишем функцию, которая выводит один!, иначе запишем функцию, которая выводит два!
-let a = +prompt('Введіть число');
 let ggg;
+let a = prompt('Введіть число, яке запишеться в змінну а');
 
-a > 0 ? ggg = () => '!' : ggg = () => '!!';
+while (!a || isNaN(+a)) {
+    a = prompt('Ви ввели не число! введіть число, яке запишеться в змінну а');
+}
+
++a > 0 ? ggg = () => '!' : ggg = () => '!!';
 
 // Вивід результату:
 let task5 = createParagraph();
 
-task4.textContent = "Если переменная a больше нуля - то в ggg запишем функцию, которая выводит один!, иначе запишем функцию, которая выводит два!";
+task5.textContent = "Если переменная a больше нуля - то в ggg запишем функцию, которая выводит один!, иначе запишем функцию, которая выводит два!";
 document.body.append(task5);
 if (a > 0) {
     document.body.insertAdjacentHTML("beforeend", `Ви ввели число більше за нуль, тому в змінній <b>ggg</b> функція яка виводить <b>${ggg()}</b><hr>`)
 } else {
-    document.body.insertAdjacentHTML("beforeend", `Ви ввели число менше за нуль або взагалі не число, тому в змінній <b>ggg</b> функція яка виводить <b>${ggg()}</b><hr>`)
+    document.body.insertAdjacentHTML("beforeend", `Ви ввели число менше за нуль, тому в змінній <b>ggg</b> функція яка виводить <b>${ggg()}</b><hr>`)
 }
 // ======================================================================================================================================
 
 
-// Используя CallBack function создайте калькулятор который будет от пользователя принимать 2 числа и знак арефметической операции.При вводе не числа или при делении на 0 выводить ошибку.
-// function calculate() {
-//     let operators = ['+', '-', '*', '/'];
-//     let firstNum = prompt('Введіть перше число');
-//     while (!firstNum || isNaN(+firstNum)) {
-//         alert('Ви не ввели перше число')
-//         firstNum = prompt('Введіть перше число');
-//     }
-
-//     let secondNum = prompt('Введіть друге число');
-//     while (!secondNum || isNaN(+secondNum)) {
-//         alert('Ви не ввели друге число')
-//         secondNum = prompt('Введіть друге число');
-//     }
-
-//     let operator = prompt('Введіть знак арифметичної операції (+, -, *, /)');
-//     while (!operators.includes(operator)) {
-//         alert('Ви не ввели знак арифметичної операції')
-//         operator = prompt('Введіть коректний знак арифметичної операції (+, -, *, /)');
-//     }
-// }
-
-function calculate(num1, num2, fun) {
-    
+// Используя CallBack function создайте калькулятор который будет от пользователя принимать 2 числа и знак арефметической операции.
+// При вводе не числа или при делении на 0 выводить ошибку.
+function getNum(message) {
+    let num = prompt(message);
+    while (!num || isNaN(+num) || parseFloat(num) !== +num) {
+        if (num === null) {
+            alert('Відмова не приймається! Введіть число')
+            num = prompt(message);
+        }
+        alert('Ви ввели не число!')
+        num = prompt(message);
+    }
+    return +num
 }
 
-function sum() {
-    return a + b
+function getSign() {
+    let operators = ['+', '-', '*', '/'];
+    let operator = prompt('Введіть знак арифметичної операції (+, -, *, /)');
+    while (!operators.includes(operator)) {
+        operator = prompt('Введіть коректний знак арифметичної операції (+, -, *, /)');
+    }
+    return operator
 }
-function min() {
-    return a - b
+
+function calculate(getNum, getSign) {
+    let a = getNum('Введіть перше число');
+    let b = getNum('Введіть друге число');
+
+    switch (getSign()) {
+        case '+':
+            return a + b;
+            break;
+        case '-':
+            return a - b;
+            break;
+        case '*':
+            return a * b;
+            break;
+        case '/':
+            if (a === 0 || b === 0) {
+                alert('Ділення на нуль неможливе!');
+                if (confirm('Ви хочете замінити нуль на інше число?')) {
+                    a === 0 ? a = getNum('Введіть перше число, але на цей раз не нуль') : b = getNum('Введіть друге число, але на цей раз не нуль')
+                } else {
+                    return 'Помилка обчислення. Ділення на нуль неможливе!'
+                }
+            }
+            return a / b;
+            break;
+        default:
+            throw new Error('Щось пішло не так... Напевно не вистачає аргументів у викликаної функції')
+            break;
+    }
 }
-function div() {
-    return a / b
-}
-function mul() {
-    return a * b
-}
+
+// Вивід результату:
 let task6 = createParagraph();
 
+task6.innerHTML = "<b>Основне завдання:</b><br>Используя CallBack function создайте калькулятор который будет от пользователя принимать 2 числа и знак арефметической операции. При вводе не числа или при делении на 0 выводить ошибку";
+document.body.append(task6);
+document.body.insertAdjacentHTML("beforeend", `Наприклад викликаю функцію ось так <b>calculate(getNum, getSign)</b> - отримую результат виклику <b>${calculate(getNum, getSign)}</b><hr>`)
 // ======================================================================================================================================
 
 // Напиши функцію map(fn, array), яка приймає на вхід функцію та масив, та обробляє кожен елемент масиву цією функцією, повертаючи новий масив.
@@ -155,16 +182,13 @@ function map(fn, array) {
 // Вивід результату:
 let task7 = createParagraph();
 
-task7.innerHTML = "Напиши функцію <b>map(fn, array)</b>, яка приймає на вхід функцію та масив, та обробляє кожен елемент масиву цією функцією, повертаючи новий масив.";
+task7.innerHTML = "<b>Основне завдання:</b><br>Напиши функцію <b>map(fn, array)</b>, яка приймає на вхід функцію та масив, та обробляє кожен елемент масиву цією функцією, повертаючи новий масив.";
 document.body.append(task7);
 document.body.insertAdjacentHTML("beforeend", `Наприклад викликаю функцію ось так <b>map(item=>item*2, [1,2,3,4,5])</b> і отримую новий масив <b>[${map(item => item * 2, [1, 2, 3, 4, 5])}]</b><hr>`)
 // ======================================================================================================================================
 
 
 // Функция ggg принимает 2 параметра: анонимную функцию, которая возвращает 3 и анонимную функцию, которая возвращает 4. Верните результатом функции ggg сумму 3 и 4.
-const func1 = () => 3;
-const func2 = () => 4;
-
 function gggg(fun1, fun2) {
     return fun1() + fun2();
 }
@@ -174,10 +198,8 @@ let task8 = createParagraph();
 
 task8.innerHTML = "Функция ggg принимает 2 параметра: анонимную функцию, которая возвращает 3 и анонимную функцию, которая возвращает 4. Верните результатом функции ggg сумму 3 и 4.";
 document.body.append(task8);
-document.body.insertAdjacentHTML("beforeend", `Наприклад викликаю функцію ось так <b>ggg(func1, func2)</b><br>
-де func1 - <b>const func1 = () => 3;</b><br>
-а func1 - <b>const func2 = () => 4;</b><br>
-отримую результат виклику <b>${gggg(func1, func2) }</b><hr>`)
+document.body.insertAdjacentHTML("beforeend", `Наприклад викликаю функцію ось так <b>gggg(() => 3, () => 4)</b><br>
+отримую результат виклику <b>${gggg(() => 3, () => 4)}</b><hr>`)
 
 // ======================================================================================================================================
 
