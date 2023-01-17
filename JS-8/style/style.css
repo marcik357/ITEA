@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+img {
+    display: block;
+    max-width: 400px;
+    max-height: 400px;
+}
+
+p {
+    cursor: pointer;
+}
+
+.exchanger-input {
+    display: block;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.wrapper div {
+    width: 100px;
+    height: 100px;
+    border: 1px solid red;
+}
+
+.text-area {
+    width: 50%;
+    height: 150px;
+    resize: none;
+    display: block;
+}
