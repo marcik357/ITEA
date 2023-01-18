@@ -134,3 +134,54 @@ function deleteParagraph(e) {
 // При натисканні кнопки "Намалювати коло" показувати одне поле введення - діаметр кола.
 // При натисканні на кнопку "Намалювати" створити на сторінці 100 кіл(10 * 10) випадкового кольору.
 // При натисканні на конкретне коло - це коло повинен зникати, при цьому порожнє місце заповнюватися, тобто всі інші кола зрушуються вліво.
+// Create and insert start button
+const drawCircle = document.createElement('button');
+drawCircle.classList.add('draw-circle');
+drawCircle.innerText = 'Намалювати коло'
+wrapper.append(drawCircle);
+// Add listeners
+wrapper.addEventListener('click', showControls);
+wrapper.addEventListener('click', insertCircles);
+wrapper.addEventListener('click', removeCircle)
+// Show input and new button to create full circles field insted of start button
+function showControls(e) {
+    if (e.target.closest('.draw-circle')) {
+        drawCircle.remove();
+        wrapper.insertAdjacentHTML('beforeend', `
+            <input class="circle-size" type="number">
+            <button class="circle-creator">Намалювати</button>
+        `);
+    }
+}
+// Insert field for circle, then in cycle insert circles in this field
+function insertCircles(e) {
+    if (e.target.closest('.circle-creator') && +document.querySelector('.circle-size').value > 0) {
+        if (document.querySelector('.circles-field')) {
+            document.querySelector('.circles-field').remove();
+        }
+        const circlesField = document.createElement('div');
+        circlesField.classList.add('circles-field');
+        document.querySelector('.circle-creator').after(circlesField);
+        for (let i = 1; i <= 100; i++) {
+            circlesField.append(createCircle(i));
+        }
+    }
+}
+// Create circle with random color
+function createCircle(i) {
+    const size = document.querySelector('.circle-size').value;
+    const circle = document.createElement('div');
+    circle.classList.add('circle')
+    circle.style.backgroundColor = getRandomColor();
+    circle.style.width = `${size}px`;
+    circle.style.height = `${size}px`;
+    circle.style.borderRadius = '50%';
+    circle.innerText = i;
+    return circle;
+}
+// Remove clicked circle
+function removeCircle(e) {
+    if (e.target.closest('.circle')) {
+        e.target.closest('.circle').remove();
+    }
+}

@@ -38,3 +38,23 @@ p {
     resize: none;
     display: block;
 }
+
+.wrapper .circles-field {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template: auto / repeat(10, 1fr);
+}
+
+.circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
