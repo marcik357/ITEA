@@ -106,7 +106,12 @@ let changeImgCounter = 0;
 function changeImg(e) {
     if (e.target.closest('.change-img-btn')) {
         changeImgCounter++;
-        changeImgCounter < imagesSrc.length ? changebleImg.src = imagesSrc[changeImgCounter] : changeImgBtn.removeEventListener('click', changeImg);
+        if (changeImgCounter < imagesSrc.length) {
+            changebleImg.src = imagesSrc[changeImgCounter];
+            if (changeImgCounter === (imagesSrc.length - 1)) {
+                changeImgBtn.remove();
+            }
+        }
     }
 }
 //=============================================================================
