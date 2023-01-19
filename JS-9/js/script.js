@@ -117,8 +117,58 @@ function submitePhone(e) {
         }, 1000);
     } else {
         input.insertAdjacentHTML('beforebegin', `
-        <img src='https://i.picsum.photos/id/685/3000/2000.jpg?hmac=GLauGOEYjS7xOFx_wgC1vpX7_QRZNjtK4Dk-1OCZ1BI'>
+            <img src='https://i.picsum.photos/id/685/3000/2000.jpg?hmac=GLauGOEYjS7xOFx_wgC1vpX7_QRZNjtK4Dk-1OCZ1BI'>
         `);
     }
 }
 //==================================================================================
+
+
+// Доп. завдання
+
+// Створіть на сторінці div і дайте йому зовнішній відступ 150 пікселів. Використовуючи JS виведіть у консоль відступ
+const div = document.createElement('div');
+div.innerText = 'Дів у якого зовнішній відступ 150 пікселів'
+document.body.append(div);
+div.style.margin = '150px';
+console.log(window.getComputedStyle(div).margin);
+//==================================================================================
+
+
+// Слайдер
+// Створіть слайдер кожні 3 сек змінюватиме зображення
+// Variables
+let counter = 0;
+const slides = [
+    'https://i.picsum.photos/id/448/5000/3333.jpg?hmac=BUglqWdOBRUefNRTqPw0zT5L_6YIkjkhK7smNOsYkcQ',
+    'https://i.picsum.photos/id/437/4128/2716.jpg?hmac=j6COqB2RtRcMa56wHOd4qZbRPIUmjWrV_Ax73-tP_go',
+    'https://i.picsum.photos/id/428/2529/1581.jpg?hmac=FmX3-15B3BDpSiq3wq-eiTuAZ51CdKcJwrDeRICFCIU',
+    'https://i.picsum.photos/id/324/3888/2592.jpg?hmac=DZkyIS42bw6Me8jO8Q1TLdX2IGneZYRShExpmRrMiuU',
+];
+// Create and insert slider
+const slider = document.createElement('div');
+slider.classList.add('slider');
+slider.innerHTML = `<img src='${slides[0]}'>`;
+document.body.append(slider);
+// Slider animation
+changeSlide();
+function changeSlide() {
+    setTimeout(() => {
+        counter++;
+        if (counter === slides.length) counter = 0;
+        let hide = setInterval(() => {
+            slider.style.opacity = window.getComputedStyle(slider).opacity - 0.1
+            if (window.getComputedStyle(slider).opacity === '0') {
+                clearInterval(hide);
+                slider.innerHTML = `<img src='${slides[counter]}'>`;
+                let show = setInterval(() => {
+                    slider.style.opacity = +window.getComputedStyle(slider).opacity + 0.1
+                    if (window.getComputedStyle(slider).opacity === '1') {
+                        changeSlide();
+                        clearInterval(show);
+                    }
+                }, 50);
+            }
+        }, 50);
+    }, 2500);
+}
