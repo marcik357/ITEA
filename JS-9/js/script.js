@@ -125,7 +125,7 @@ function submitePhone(e) {
 
 
 // Доп. завдання
-
+document.body.insertAdjacentHTML('beforeend', `<p>Доп. завдання:</p>`)
 // Створіть на сторінці div і дайте йому зовнішній відступ 150 пікселів. Використовуючи JS виведіть у консоль відступ
 const div = document.createElement('div');
 div.innerText = 'Дів у якого зовнішній відступ 150 пікселів'
