@@ -1,7 +1,7 @@
 // Create wrapper div for work
-document.body.insertAdjacentHTML('afterbegin', `<div class="wrapper"></div>`);
-const wrapper = document.querySelector('.wrapper');
-const createElement = (tag) => document.createElement(tag);
+const wrapper = document.createElement('div');
+wrapper.classList.add('wrapper')
+document.body.prepend(wrapper)
 //=============================================================================
 
 
