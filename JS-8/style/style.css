@@ -51,6 +51,7 @@ p {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    border-radius: 50%;
 }
 
 input::-webkit-outer-spin-button,

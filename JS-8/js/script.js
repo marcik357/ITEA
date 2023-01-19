@@ -180,7 +180,6 @@ function createCircle(i) {
     circle.style.backgroundColor = getRandomColor();
     circle.style.width = `${size}px`;
     circle.style.height = `${size}px`;
-    circle.style.borderRadius = '50%';
     circle.innerText = i;
     return circle;
 }
