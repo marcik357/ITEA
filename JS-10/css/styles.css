@@ -101,5 +101,14 @@ p {
 }
 
 input[disabled] {
-  opacity: .5 ;
+  opacity: .5;
+}
+
+.memory-sign {
+  position: absolute;
+  color: red;
+  left: 7px;
+  bottom: 0;
+  z-index: 10;
+  font-size: 10px;
 }
