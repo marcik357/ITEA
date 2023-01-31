@@ -1,0 +1,83 @@
+.valid {
+    outline: 2px solid green;
+}
+
+.unvalid {
+    outline: 2px solid red;
+}
+
+#formTask2 {
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.price-input {
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 5px;
+
+    &.focus {
+        outline: 2px solid green;
+    }
+
+    &.error {
+        outline: 2px solid red;
+    }
+
+    &.valid {
+        color: green;
+    }
+}
+
+.price-span {
+    position: absolute;
+    top: 0;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    &__close {
+        cursor: pointer;
+        position: relative;
+        border-radius: 50%;
+        // border: 1px solid #000;
+        border: none;
+        width: 15px;
+        height: 15px;
+        background-color: #ccc;
+
+        &:before,
+        &::after {
+            position: absolute;
+            z-index: 2;
+            left: 50%;
+            top: 50%;
+            content: '';
+            background-color: red;
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        &:before {
+            width: 2px;
+            height: 10px;
+        }
+
+        &::after {
+            height: 2px;
+            width: 10px;
+        }
+    }
+}
+
+.price-error {
+    color: red;
+    position: absolute;
+    bottom: 0;
+}
