@@ -19,14 +19,13 @@ async function getComments(i = 0) {
 function showComment(arr, i) {
     const comments = document.querySelector('.comments');
     comments.innerHTML = '';
-    i > 1 ? i -= 1 : i = 0;
-    i = i * 10;
+    i > 1 ? i = (i - 1) * 10 : i = 0;
     const count = +i + 10;
     for (i; i < count; i++) {
         const commentBlock = document.createElement('div')
         commentBlock.classList.add('comments__item');
         commentBlock.innerHTML = `<div>id: ${arr[i].id}</div><div>name: ${arr[i].name}</div><div>email: ${arr[i].email}</div><div>name: ${arr[i].body}</div>`
-        document.querySelector('.comments').append(commentBlock)
+        comments.append(commentBlock)
     }
 }
 //==========================================================================================================================================================
