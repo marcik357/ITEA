@@ -1,22 +1,23 @@
-html{
-    --blue  : rgb(56, 56, 255);
+html {
+    --blue: rgb(56, 56, 255);
     --yellow: rgb(250, 250, 94);
     font-size: 20px;
 }
 
-body{
-   margin: 0;
+body {
+    margin: 0;
 }
 
-a{
+a {
     text-decoration: none;
     color: inherit;
 }
 
-.icon{
+.icon {
     font-size: 30px;
 }
-.add{
+
+.add {
     font-size: 20px;
     border: 1px solid green;
     color: white;
@@ -28,32 +29,33 @@ a{
     cursor: pointer;
 }
 
-.add:hover{
+.add:hover {
     background-color: rgb(2, 88, 2);
     transition: all .2s;
 }
 
-.add:hover span{
+.add:hover span {
     display: inline-block;
     animation: addBtnFile .2s 1 linear forwards;
 }
 
-header{
+header {
     position: sticky;
     top: 0;
     z-index: 2;
 }
 
-header, .navigation{
+header,
+.navigation {
     background-color: var(--blue);
 }
 
-header > nav{
+header>nav {
     display: flex;
     justify-content: space-evenly;
 }
 
-header > nav > div{
+header>nav>div {
     padding: 1rem;
     text-align: center;
     font-size: .8rem;
@@ -61,11 +63,11 @@ header > nav > div{
     font-weight: bold;
 }
 
-main{
+main {
     display: flex;
 }
 
-.navigation{
+.navigation {
     width: 300px;
     top: calc(2.8rem);
     height: calc(100vh - 2.8rem);
@@ -75,10 +77,10 @@ main{
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-  
+
 }
 
-.navigation li a{
+.navigation li a {
     text-decoration: none;
     display: block;
     padding: 1rem;
@@ -87,31 +89,57 @@ main{
     cursor: pointer;
 }
 
-.navigation li a:hover, nav div:hover{
+.navigation li a:hover,
+nav div:hover {
     background-color: var(--yellow);
     color: var(--blue);
     transition: all .8s;
 }
 
-main section{
+main section {
     width: 100%;
 }
 
-table{
+table {
     border-collapse: collapse;
     width: 100%;
     height: 100%;
+    text-align: center;
 }
 
-table, td, th {
+table,
+td,
+th {
     border: 1px solid black;
 }
 
-thead{
+thead {
     max-height: 30px;
 }
 
-.container-modal{
+table .icon {
+    padding: .3rem;
+    border-radius: 5px;
+    background-color: rgba(180, 180, 180, 0.507);
+    box-sizing: border-box;
+    transition: all .4s;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+table .icon:hover {
+    background-color: rgba(180, 180, 180, 1);
+}
+
+table .icon.red {
+    color: red;
+}
+
+table .icon.green {
+    color: green;
+}
+
+.container-modal {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -125,23 +153,25 @@ thead{
     background: repeating-linear-gradient(25deg, rgba(192, 192, 192, .2) 10px, rgba(77, 77, 77, .2) 30px);
 }
 
-.modal{
+.modal {
     width: 80%;
     min-height: 50vh;
     background: white;
     border: 1px solid var(--blue);
 }
 
-.hide{
+.hide {
     display: none;
 }
 
 
+
 @keyframes addBtnFile {
-    from{
+    from {
         transform: translateY(-10vh);
     }
-    to{
+
+    to {
         transform: translateY(0);
     }
 }
