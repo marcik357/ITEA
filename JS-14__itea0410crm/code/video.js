@@ -18,7 +18,7 @@ function showVideoProduct(arr = []) {
             createHTMLElement("td", undefined, date),
             createHTMLElement("td", undefined, url),
             createHTMLElement("td", undefined, `<span data-key="${id}" class="icon">&#9998;</span>`, undefined, editProductVideoEvent),
-            createHTMLElement("td", undefined, "<span class='icon'>&#10006;</span>"),
+            createHTMLElement("td", undefined, `<span data-key="${id}" class='icon'>&#10006;</span>`, undefined, delProductVideoEvent),
         ]
         tbody.append(tr);
         tr.append(...element)
@@ -102,3 +102,12 @@ function newSaveProductInfo(newObj, oldObj) {
     localStorage.videoBD = JSON.stringify(video);
 }
 
+function delProductVideoEvent(e) {
+    if (!e.target.dataset.key) return;
+
+    const video = JSON.parse(localStorage.videoBD);
+
+    e.target.parentElement.parentElement.remove()
+    video.splice(video.findIndex(el => el.id === e.target.dataset.key), 1)
+    localStorage.videoBD = JSON.stringify(video);
+}

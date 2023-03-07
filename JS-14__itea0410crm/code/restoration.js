@@ -103,6 +103,11 @@ function newSaveProductInfo(newObj, oldObj) {
 }
 
 function delProductRestoranEvent(e) {
-    if (!e.target.tagName === "SPAN") return;
-    console.log('object');
+    if (!e.target.dataset.key) return;
+
+    const rest = JSON.parse(localStorage.restorationBD);
+
+    e.target.parentElement.parentElement.remove()
+    rest.splice(rest.findIndex(el => el.id === e.target.dataset.key), 1)
+    localStorage.restorationBD = JSON.stringify(rest);
 }

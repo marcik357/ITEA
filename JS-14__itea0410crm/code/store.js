@@ -20,7 +20,7 @@ function showStoreProduct(arr = []) {
             createHTMLElement("td", undefined, `<span data-key="${id}" class="icon">&#9998;</span>`, undefined, editProductStoreEvent),
             createHTMLElement("td", undefined, status ? "<span class='icon green'>&#10004;</span>" : "<span class='icon red'>&#10008;</span>"),
             createHTMLElement("td", undefined, date),
-            createHTMLElement("td", undefined, "<span class='icon'>&#10006;</span>"),
+            createHTMLElement("td", undefined, `<span data-key="${id}" class='icon'>&#10006;</span>`, undefined, delProductStoreEvent),
         ]
         tbody.append(tr);
         tr.append(...element)
@@ -106,3 +106,12 @@ function newSaveProductInfo(newObj, oldObj) {
     localStorage.storeBD = JSON.stringify(store);
 }
 
+function delProductStoreEvent(e) {
+    if (!e.target.dataset.key) return;
+
+    const store = JSON.parse(localStorage.storeBD);
+
+    e.target.parentElement.parentElement.remove()
+    store.splice(store.findIndex(el => el.id === e.target.dataset.key), 1)
+    localStorage.storeBD = JSON.stringify(store);
+}
