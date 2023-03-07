@@ -1,13 +1,13 @@
-import { createHTMLElement } from "./functions.js";
-
-//console.log(JSON.parse(localStorage.restorationBD));
+import { hideModalEvent, showModalEvent } from "./events.js";
+import { createHTMLElement, createEditProductInput } from "./functions.js";
+import { modalClose, modalSave } from "./var.js";
 
 //Вивід на сторінку позицій меню
 function showRestoranMenu(arr = []) {
     //Знайшли tbody для виводу інформації по позиціям 
     const tbody = document.querySelector("tbody");
 
-    arr.forEach(function ({productName, quantity, price,stopList, date}, i) {
+    arr.forEach(function ({productName, quantity, price, status, date, id}, i) {
         //Назва	Залишок	Ціна	Редагувати	Статус	Дата додавання	Видалити
         const tr = createHTMLElement("tr");
         const element = [
@@ -15,8 +15,8 @@ function showRestoranMenu(arr = []) {
             createHTMLElement("td", undefined, productName),
             createHTMLElement("td", undefined, quantity),
             createHTMLElement("td", undefined, price),
-            createHTMLElement("td", undefined, "&#9998;"),
-            createHTMLElement("td", undefined, stopList? "&#10004;" : "&#10008;"),
+            createHTMLElement("td", undefined, `<span data-key="${id}" class="icon">&#9998;</span>`, undefined, editProductStoreEvent),
+            createHTMLElement("td", undefined, status ? "<span class='icon green'>&#10004;</span>" : "<span class='icon red'>&#10008;</span>"),
             createHTMLElement("td", undefined, date),
             createHTMLElement("td", undefined, "&#10006;"),
         ]
@@ -29,12 +29,76 @@ if (localStorage.restorationBD) {
     showRestoranMenu(JSON.parse(localStorage.restorationBD));
 }
 
-/*
-[{"id":"4a$o_bcj2mq","productName":"Борщ","productWeiht":"400","ingredients":
-"українська рідка страва, що вариться з посічених буряків, капусти з 
-додатком картоплі та різних приправ[","price":"40","productImageUrl":
-"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Borscht_served.jpg/440px-Borscht_served.jpg",
-"keywords":["Гарячі страви"," Чеврний борщ"," з буряком"],
-"stopList":true,"quantity":0,"date":"\n    2023-1-25 20:6:11\n "}]
-*/
+// Змінюємо продукут з БД
+function editProductStoreEvent(e) {
+    if (!e.target.tagName === "SPAN") return;
+    showModalEvent();
+
+    const span = e.target;
+    const rest = JSON.parse(localStorage.restorationBD);
+
+    const modalWindow = document.querySelector(".modal");
+    const modalBody = createHTMLElement("div", "modal-body");
+    modalWindow.append(modalBody);
+
+    // Робота з кнопками 
+    const btns = createHTMLElement("div", "btns-save");
+
+    modalSave.addEventListener("click", () => {
+        newSaveProductInfo(modalBody, rez)
+    });
+
+    modalClose.addEventListener("click", () => {
+        hideModalEvent()
+        modalBody.remove()
+    });
+
+    btns.append(modalSave, modalClose);
+    modalWindow.append(btns)
+
+    //Визначення обєвкта для редагування
+    const rez = rest.find((a) => {
+        return span.dataset.key === a.id
+    });
+    const data = Object.entries(rez);
+
+    // Редагування позиції
+    const inputsElemets = data.map(([props, value]) => {
+        return createEditProductInput(props, value)
+    })
+    modalBody.append(...inputsElemets)
+}
+
+function newSaveProductInfo(newObj, oldObj) {
+    const inputs = newObj.querySelectorAll("input");
+
+    const obj = {
+        id: oldObj.id,
+        date: oldObj.date,
+        status: false
+    }
+
+    inputs.forEach(input => {
+        switch (input.key) {
+            case "porductPrice": obj.porductPrice = input.value;
+                return
+            case "productDescription": obj.productDescription = input.value;
+                return
+            case "productImage": obj.productImage = input.value;
+                return
+            case "productName": obj.productName = input.value;
+                return
+            case "productQuantity": obj.productQuantity = input.value;
+                return
+        }
+    })
+    if (obj.productQuantity > 0) {
+        obj.status = true;
+    } else {
+        obj.status = false;
+    }
+    const rest = JSON.parse(localStorage.restorationBD);
+    rest.splice(store.findIndex(el => el.id === oldObj.id), 1, obj);
+    localStorage.restorationBD = JSON.stringify(rest);
+}
 
