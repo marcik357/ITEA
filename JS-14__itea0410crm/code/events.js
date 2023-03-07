@@ -80,7 +80,6 @@ function changeCategoryEvent(e) {
             ${createInputSring("text", "Ключеві слова для пошуку. Розділяти комою", generationId(), "keywords")}
             ${createInputSring("text", "Вартість продукту", generationId(), "price")}
             ${createInputSring("url", "Забраження продукту", generationId(), "productimageUrl")}
-            ${createInputSring("text", "Опис продукту", generationId(), "description")}
         </form>
         `)
     }
@@ -104,7 +103,7 @@ function saveData() {
                 e.value = ''
             })
 
-            const store = JSON.parse(localStorage.store);
+            const store = JSON.parse(localStorage.storeBD);
             store.push(new StoreElementCRM(
                 obj.productName,
                 obj.porductPrice,
@@ -115,7 +114,7 @@ function saveData() {
                 dateNow,
                 generationId));
 
-            localStorage.store = JSON.stringify(store);
+            localStorage.storeBD = JSON.stringify(store);
 
         } else if (isCategory.value === "Відео хостинг") {
             const obj = {
@@ -131,7 +130,7 @@ function saveData() {
                 e.value = ''
             })
 
-            const video = JSON.parse(localStorage.video);
+            const video = JSON.parse(localStorage.videoBD);
             video.push(new videoElementCRM(
                 obj.productName,
                 obj.poster,
@@ -141,7 +140,7 @@ function saveData() {
                 dateNow,
                 generationId));
 
-            localStorage.video = JSON.stringify(video);
+            localStorage.videoBD = JSON.stringify(video);
 
         } else if (isCategory.value === "Рестаран") {
             const obj = {
@@ -159,7 +158,7 @@ function saveData() {
                 e.value = ''
             })
 
-            const rest = JSON.parse(localStorage.rest);
+            const rest = JSON.parse(localStorage.restorationBD);
             rest.push(new restElementCRM(
                 obj.productName,
                 obj.productWeiht,
@@ -171,7 +170,7 @@ function saveData() {
                 dateNow,
                 generationId));
 
-            localStorage.rest = JSON.stringify(rest);
+            localStorage.restorationBD = JSON.stringify(rest);
 
         }
     } catch (e) {

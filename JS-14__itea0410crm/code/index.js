@@ -43,19 +43,19 @@ try {
     */
 
 } catch (e) {
-    console.error(e)
+    // console.error(e)
 }
 
 
 console.log(getLogin, getPassword);
 
-if(!localStorage.store){
-    localStorage.store = JSON.stringify([])
+if (!localStorage.storeBD) {
+    localStorage.storeBD = JSON.stringify([])
 }
-if(!localStorage.video){
-    localStorage.video = JSON.stringify([])
+if (!localStorage.videoBD) {
+    localStorage.videoBD = JSON.stringify([])
 }
-if(!localStorage.rest){
-    localStorage.rest = JSON.stringify([])
+if (!localStorage.restorationBD) {
+    localStorage.restorationBD = JSON.stringify([])
 }
 
