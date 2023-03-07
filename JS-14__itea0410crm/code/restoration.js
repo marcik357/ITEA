@@ -15,7 +15,7 @@ function showRestoranMenu(arr = []) {
             createHTMLElement("td", undefined, productName),
             createHTMLElement("td", undefined, quantity),
             createHTMLElement("td", undefined, price),
-            createHTMLElement("td", undefined, `<span data-key="${id}" class="icon">&#9998;</span>`, undefined, editProductStoreEvent),
+            createHTMLElement("td", undefined, `<span data-key="${id}" class="icon">&#9998;</span>`, undefined, editProductRestoranEvent),
             createHTMLElement("td", undefined, status ? "<span class='icon green'>&#10004;</span>" : "<span class='icon red'>&#10008;</span>"),
             createHTMLElement("td", undefined, date),
             createHTMLElement("td", undefined, "&#10006;"),
@@ -30,7 +30,7 @@ if (localStorage.restorationBD) {
 }
 
 // Змінюємо продукут з БД
-function editProductStoreEvent(e) {
+function editProductRestoranEvent(e) {
     if (!e.target.tagName === "SPAN") return;
     showModalEvent();
 
@@ -98,7 +98,7 @@ function newSaveProductInfo(newObj, oldObj) {
         obj.status = false;
     }
     const rest = JSON.parse(localStorage.restorationBD);
-    rest.splice(store.findIndex(el => el.id === oldObj.id), 1, obj);
+    rest.splice(rest.findIndex(el => el.id === oldObj.id), 1, obj);
     localStorage.restorationBD = JSON.stringify(rest);
 }
 
