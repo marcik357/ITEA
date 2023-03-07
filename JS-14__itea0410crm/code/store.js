@@ -114,4 +114,7 @@ function delProductStoreEvent(e) {
     e.target.parentElement.parentElement.remove()
     store.splice(store.findIndex(el => el.id === e.target.dataset.key), 1)
     localStorage.storeBD = JSON.stringify(store);
+
+    const rows = document.querySelectorAll("tbody tr");
+    [...rows].map((row, index) => [...row.children][0].textContent = index + 1)
 }

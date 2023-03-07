@@ -110,4 +110,7 @@ function delProductVideoEvent(e) {
     e.target.parentElement.parentElement.remove()
     video.splice(video.findIndex(el => el.id === e.target.dataset.key), 1)
     localStorage.videoBD = JSON.stringify(video);
+
+    const rows = document.querySelectorAll("tbody tr");
+    [...rows].map((row, index) => [...row.children][0].textContent = index + 1)
 }

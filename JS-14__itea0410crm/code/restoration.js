@@ -110,4 +110,7 @@ function delProductRestoranEvent(e) {
     e.target.parentElement.parentElement.remove()
     rest.splice(rest.findIndex(el => el.id === e.target.dataset.key), 1)
     localStorage.restorationBD = JSON.stringify(rest);
+
+    const rows = document.querySelectorAll("tbody tr");
+    [...rows].map((row, index) => [...row.children][0].textContent = index + 1)
 }
