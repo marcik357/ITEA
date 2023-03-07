@@ -35,7 +35,7 @@ if (localStorage.storeBD) {
 
 // Змінюємо продукут з БД
 function editProductStoreEvent(e) {
-    if (!e.target.tagName === "SPAN") return;
+    if (!e.target.dataset.key) return;
     showModalEvent();
 
     const span = e.target;

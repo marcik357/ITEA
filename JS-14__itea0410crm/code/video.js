@@ -33,7 +33,7 @@ if (localStorage.videoBD) {
 
 // Змінюємо продукут з БД
 function editProductVideoEvent(e) {
-    if (!e.target.tagName === "SPAN") return;
+    if (!e.target.dataset.key) return;
     showModalEvent();
 
     const span = e.target;
