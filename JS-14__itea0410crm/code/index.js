@@ -1,4 +1,4 @@
-import { getLogin, getPassword } from "./var.js";
+import { getLogin, getPassword, modalClose, modalSave } from "./var.js";
 import { changeInputEvent, userLoginEvent, showModalEvent, hideModalEvent, saveData } from "./events.js";
 import { createHTMLElement, categorySelect } from "./functions.js";
 
@@ -23,9 +23,6 @@ try {
         .addEventListener("click", showModalEvent);
 
     const modalWindow = document.querySelector(".container-modal .modal");
-
-    const modalSave = createHTMLElement("button", "btn-save", "Зберегти", [{ "type": "button" }, { "data-type": "button" }]);
-    const modalClose = createHTMLElement("button", "btn-close", "Скасувати", [{ "type": "button" }, { "data-type": "button" }]);;
 
     modalWindow.insertAdjacentHTML("beforeend", `
     <h2>Додайте новий продукт до БД</h2>
