@@ -18,7 +18,7 @@ function showRestoranMenu(arr = []) {
             createHTMLElement("td", undefined, `<span data-key="${id}" class="icon">&#9998;</span>`, undefined, editProductRestoranEvent),
             createHTMLElement("td", undefined, status ? "<span class='icon green'>&#10004;</span>" : "<span class='icon red'>&#10008;</span>"),
             createHTMLElement("td", undefined, date),
-            createHTMLElement("td", undefined, "&#10006;"),
+            createHTMLElement("td", undefined, "<span class='icon'>&#10006;</span>"),
         ]
         tbody.append(tr);
         tr.append(...element)
