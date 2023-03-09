@@ -46,6 +46,9 @@ function editProductRestoranEvent(e) {
 
     modalSave.addEventListener("click", () => {
         newSaveProductInfo(modalBody, rez)
+        hideModalEvent()
+        modalBody.remove()
+        showRestoranMenu(JSON.parse(localStorage.restorationBD))
     });
 
     modalClose.addEventListener("click", () => {
@@ -57,15 +60,11 @@ function editProductRestoranEvent(e) {
     modalWindow.append(btns)
 
     //Визначення обєвкта для редагування
-    const rez = rest.find((a) => {
-        return span.dataset.key === a.id
-    });
+    const rez = rest.find((a) => span.dataset.key === a.id);
     const data = Object.entries(rez);
 
     // Редагування позиції
-    const inputsElemets = data.map(([props, value]) => {
-        return createEditProductInput(props, value)
-    })
+    const inputsElemets = data.map(([props, value]) => createEditProductInput(props, value))
     modalBody.append(...inputsElemets)
 }
 
@@ -92,11 +91,9 @@ function newSaveProductInfo(newObj, oldObj) {
                 return
         }
     })
-    if (obj.productQuantity > 0) {
-        obj.status = true;
-    } else {
-        obj.status = false;
-    }
+
+    obj.productQuantity > 0 ? obj.status = true : obj.status = false;
+
     const rest = JSON.parse(localStorage.restorationBD);
     rest.splice(rest.findIndex(el => el.id === oldObj.id), 1, obj);
     localStorage.restorationBD = JSON.stringify(rest);
@@ -106,11 +103,11 @@ function delProductRestoranEvent(e) {
     if (!e.target.dataset.key) return;
 
     const rest = JSON.parse(localStorage.restorationBD);
+    const rows = document.querySelectorAll("tbody tr");
 
     e.target.parentElement.parentElement.remove()
     rest.splice(rest.findIndex(el => el.id === e.target.dataset.key), 1)
     localStorage.restorationBD = JSON.stringify(rest);
 
-    const rows = document.querySelectorAll("tbody tr");
     [...rows].map((row, index) => [...row.children][0].textContent = index + 1)
 }
