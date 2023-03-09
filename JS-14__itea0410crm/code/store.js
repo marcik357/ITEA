@@ -50,6 +50,9 @@ function editProductStoreEvent(e) {
 
     modalSave.addEventListener("click", () => {
         newSaveProductInfo(modalBody, rez)
+        hideModalEvent()
+        modalBody.remove()
+        showStoreProduct(JSON.parse(localStorage.storeBD));
     });
 
     modalClose.addEventListener("click", () => {
@@ -61,15 +64,11 @@ function editProductStoreEvent(e) {
     modalWindow.append(btns)
 
     //Визначення обєвкта для редагування
-    const rez = store.find((a) => {
-        return span.dataset.key === a.id
-    });
+    const rez = store.find((a) => span.dataset.key === a.id);
     const data = Object.entries(rez);
 
     // Редагування позиції
-    const inputsElemets = data.map(([props, value]) => {
-        return createEditProductInput(props, value)
-    })
+    const inputsElemets = data.map(([props, value]) => createEditProductInput(props, value))
     modalBody.append(...inputsElemets)
 }
 
@@ -111,7 +110,7 @@ function delProductStoreEvent(e) {
 
     const store = JSON.parse(localStorage.storeBD);
 
-    e.target.parentElement.parentElement.remove()
+    e.target.closest('tr').remove()
     store.splice(store.findIndex(el => el.id === e.target.dataset.key), 1)
     localStorage.storeBD = JSON.stringify(store);
 
