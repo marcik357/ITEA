@@ -1,6 +1,6 @@
 import { getLogin, getPassword, modalClose, modalSave } from "./var.js";
 import { changeInputEvent, userLoginEvent, showModalEvent, hideModalEvent, saveData } from "./events.js";
-import { createHTMLElement, categorySelect } from "./functions.js";
+import { req, categorySelect } from "./functions.js";
 
 if (!sessionStorage.isLogin && !document.location.pathname.includes("/authorization")) {
     document.location = "/authorization";
@@ -37,15 +37,16 @@ try {
     modalClose.addEventListener("click", hideModalEvent);
 
     modalSave.addEventListener("click", saveData)
-
-    /*
-    Ваші події 
-    */
-
 } catch (e) {
-    // console.error(e)
 }
 
+try {
+    EXPORT.addEventListener("click", exportDataEvent);
+    REQ.addEventListener("click", () => {
+        req("fetch", "https://jsonplaceholder.typicode.com/comments")
+    })
+} catch (e) {
+}
 
 console.log(getLogin, getPassword);
 
