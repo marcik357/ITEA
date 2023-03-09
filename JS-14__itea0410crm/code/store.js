@@ -95,11 +95,7 @@ function newSaveProductInfo(newObj, oldObj) {
                 return
         }
     })
-    if (obj.productQuantity > 0) {
-        obj.status = true;
-    } else {
-        obj.status = false;
-    }
+    obj.productQuantity > 0 ? obj.status = true : obj.status = false;
     const store = JSON.parse(localStorage.storeBD);
     store.splice(store.findIndex(el => el.id === oldObj.id), 1, obj);
     localStorage.storeBD = JSON.stringify(store);
