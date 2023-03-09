@@ -13,7 +13,7 @@ class StoreElementCRM {
 }
 
 class videoElementCRM {
-    constructor(productName = "", poster = '/img/error.png', url = "", description = "", keywords = [], dateNow = () => {}, id = () => {}) {
+    constructor(productName = "", poster = '../img/error.png', url = "", description = "", keywords = [], dateNow = () => {}, id = () => {}) {
         this.id = id()
         this.date = dateNow()
         this.productName = productName;
@@ -26,7 +26,7 @@ class videoElementCRM {
 }
 
 class restElementCRM {
-    constructor(productName = "", productWeiht = "", ingredients = [], description = "", keywords = [], price = 0, productimageUrl = "/img/error.png", dateNow = () => {}, id = () => {}) {
+    constructor(productName = "", productWeiht = "", ingredients = [], description = "", keywords = [], price = 0, productimageUrl = "../img/error.png", dateNow = () => {}, id = () => {}) {
         this.id = id()
         this.date = dateNow()
         this.productName = productName;
