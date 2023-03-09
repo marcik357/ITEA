@@ -105,7 +105,7 @@ function delProductRestoranEvent(e) {
     const rest = JSON.parse(localStorage.restorationBD);
     const rows = document.querySelectorAll("tbody tr");
 
-    e.target.parentElement.parentElement.remove()
+    e.target.closest('tr').remove()
     rest.splice(rest.findIndex(el => el.id === e.target.dataset.key), 1)
     localStorage.restorationBD = JSON.stringify(rest);
 
