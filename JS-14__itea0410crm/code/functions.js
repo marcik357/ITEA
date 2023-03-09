@@ -64,7 +64,7 @@ export function createHTMLElement(tagName = "div", className, value, attr = [], 
     return el;
 }
 
-export function createInputSring (type = "text", value = "", id, key) {
+export function createInputSring(type = "text", value = "", id, key) {
     const input = `
     <div class="element-product">
       <label for="${id}">${value}</label>
@@ -90,4 +90,34 @@ export function createEditProductInput(p, v) {
 
     div.append(label, input)
     return div
+}
+
+export function req(type = "ajax", url = "/") {
+    if (type === "ajax") {
+        const r = new XMLHttpRequest();
+        r.open("GET", url);
+        r.send();
+        r.addEventListener("readystatechange", () => {
+            if (r.readyState === 4 && r.status >= 200 && r.status < 300) {
+                localStorage.server = r.responseText;
+                document.body.classList.add("rdone");
+                setTimeout(() => { document.body.classList.remove("rdone"); }, 2000)
+            } else if (r.readyState === 4) {
+                throw new Error(`Помилка з запитом: статус код : ${r.status}`)
+            }
+        })
+        r.onerror = () => alert("Немає звязку! Перевірте підключення до мережі!");
+    } else if (type === "fetch") {
+        const info = fetch(url);
+
+        info.then((data) => data.json())
+            .then((infoJson) => {
+                document.body.classList.add("rdone");
+                setTimeout(() => { document.body.classList.remove("rdone"); }, 2000)
+                localStorage.serverFetch = JSON.stringify(infoJson)
+            })
+            .catch(e => {
+                throw new Error(`Помилка з запитом: статус код : ${e.message}`)
+            })
+    }
 }
