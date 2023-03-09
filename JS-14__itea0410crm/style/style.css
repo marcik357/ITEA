@@ -164,7 +164,25 @@ table .icon.green {
     display: none;
 }
 
+.text-block {
+    white-space: normal;
+    word-break: break-word;
+    padding: .5rem;
+}
 
+.rdone {
+    animation: ok 1s linear;
+}
+
+@keyframes ok {
+    from {
+        background-color: rgba(0, 255, 0, 1);
+    }
+
+    to {
+        background-color: rgba(0, 255, 0, 0);
+    }
+}
 
 @keyframes addBtnFile {
     from {
