@@ -178,4 +178,13 @@ function saveData() {
     }
 }
 
-export { changeInputEvent, userLoginEvent, showModalEvent, changeCategoryEvent, hideModalEvent, saveData }
+function exportDataEvent() {
+    let windowData = open("/window", "test");
+    console.log(document.querySelector(".show-json"));
+
+    setTimeout(() => {
+        windowData.close()
+    }, 5000)
+}
+
+export { changeInputEvent, userLoginEvent, showModalEvent, changeCategoryEvent, hideModalEvent, saveData, exportDataEvent }
