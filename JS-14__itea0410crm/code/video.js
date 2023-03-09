@@ -8,6 +8,7 @@ import { modalClose, modalSave } from "./var.js";
 function showVideoProduct(arr = []) {
     //Знайшли tbody для виводу інформації по позиціям 
     const tbody = document.querySelector("tbody");
+    tbody.innerHTML = "";
 
     arr.forEach(function ({ productName, date, url, id }, i) {
         //#	Назва	Залишок	Ціна	Редагувати	Статус	Дата додавання	Видалити
@@ -20,6 +21,9 @@ function showVideoProduct(arr = []) {
             createHTMLElement("td", undefined, `<span data-key="${id}" class="icon">&#9998;</span>`, undefined, editProductVideoEvent),
             createHTMLElement("td", undefined, `<span data-key="${id}" class='icon'>&#10006;</span>`, undefined, delProductVideoEvent),
         ]
+        element[3].style.maxWidth = '700px';
+        element[3].style.overflow = 'hidden';
+
         tbody.append(tr);
         tr.append(...element)
     })
@@ -27,7 +31,6 @@ function showVideoProduct(arr = []) {
 
 // Читаємо з localStorage
 if (localStorage.videoBD) {
-    console.log('object');
     showVideoProduct(JSON.parse(localStorage.videoBD));
 }
 
@@ -48,6 +51,9 @@ function editProductVideoEvent(e) {
 
     modalSave.addEventListener("click", () => {
         newSaveProductInfo(modalBody, rez)
+        hideModalEvent()
+        modalBody.remove()
+        showVideo(JSON.parse(localStorage.videoBD));
     });
 
     modalClose.addEventListener("click", () => {
@@ -59,15 +65,11 @@ function editProductVideoEvent(e) {
     modalWindow.append(btns)
 
     //Визначення обєвкта для редагування
-    const rez = video.find((a) => {
-        return span.dataset.key === a.id
-    });
+    const rez = video.find((a) => span.dataset.key === a.id);
     const data = Object.entries(rez);
 
     // Редагування позиції
-    const inputsElemets = data.map(([props, value]) => {
-        return createEditProductInput(props, value)
-    })
+    const inputsElemets = data.map(([props, value]) => createEditProductInput(props, value))
     modalBody.append(...inputsElemets)
 }
 
@@ -92,11 +94,7 @@ function newSaveProductInfo(newObj, oldObj) {
                 return
         }
     })
-    if (obj.productQuantity > 0) {
-        obj.status = true;
-    } else {
-        obj.status = false;
-    }
+
     const video = JSON.parse(localStorage.videoBD);
     video.splice(video.findIndex(el => el.id === oldObj.id), 1, obj);
     localStorage.videoBD = JSON.stringify(video);
@@ -107,7 +105,7 @@ function delProductVideoEvent(e) {
 
     const video = JSON.parse(localStorage.videoBD);
 
-    e.target.parentElement.parentElement.remove()
+    e.target.closest('tr').remove()
     video.splice(video.findIndex(el => el.id === e.target.dataset.key), 1)
     localStorage.videoBD = JSON.stringify(video);
 
