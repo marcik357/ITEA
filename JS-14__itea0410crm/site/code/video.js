@@ -9,7 +9,7 @@ const videoEl = video.map(({ productName, id, url, description, keywords = [], p
     <div class="video">
     <h3 class="video-name">${productName}</h3>
     <video id="${id}" controls poster="${poster}">
-        <source src="${url}">
+        ${url.startsWith("http") ? `<source src="${url}">` : `<source src="../assets/video/${url}">`}
     </video>
     <p class="video-description">
     ${description}

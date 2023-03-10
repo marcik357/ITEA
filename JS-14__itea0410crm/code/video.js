@@ -2,15 +2,13 @@ import { hideModalEvent, showModalEvent } from "./events.js";
 import { createHTMLElement, createEditProductInput } from "./functions.js";
 import { modalClose, modalSave } from "./var.js";
 
-//console.log(JSON.parse(localStorage.restorationBD));
-
 //Вивід на сторінку позицій меню
 function showVideoProduct(arr = []) {
     //Знайшли tbody для виводу інформації по позиціям 
     const tbody = document.querySelector("tbody");
     tbody.innerHTML = "";
 
-    arr.forEach(function ({ productName, date, url, id }, i) {
+    arr.forEach(function ({ productName, date, url, id, description, keywords }, i) {
         //#	Назва	Залишок	Ціна	Редагувати	Статус	Дата додавання	Видалити
         const tr = createHTMLElement("tr");
         const element = [
@@ -18,10 +16,12 @@ function showVideoProduct(arr = []) {
             createHTMLElement("td", undefined, productName),
             createHTMLElement("td", undefined, date),
             createHTMLElement("td", undefined, url),
+            createHTMLElement("td", undefined, description),
+            createHTMLElement("td", undefined, keywords),
             createHTMLElement("td", undefined, `<span data-key="${id}" class="icon">&#9998;</span>`, undefined, editProductVideoEvent),
             createHTMLElement("td", undefined, `<span data-key="${id}" class='icon'>&#10006;</span>`, undefined, delProductVideoEvent),
         ]
-        element[3].style.maxWidth = '700px';
+        element[3].style.maxWidth = '200px';
         element[3].style.overflow = 'hidden';
 
         tbody.append(tr);
@@ -53,7 +53,7 @@ function editProductVideoEvent(e) {
         newSaveProductInfo(modalBody, rez)
         hideModalEvent()
         modalBody.remove()
-        showVideo(JSON.parse(localStorage.videoBD));
+        showVideoProduct(JSON.parse(localStorage.videoBD));
     });
 
     modalClose.addEventListener("click", () => {
@@ -91,6 +91,8 @@ function newSaveProductInfo(newObj, oldObj) {
             case "url": obj.url = input.value;
                 return
             case "description": obj.description = input.value;
+                return
+            case "keywords": obj.keywords = input.value.split(',');
                 return
         }
     })
