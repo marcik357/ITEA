@@ -78,7 +78,8 @@ function changeCategoryEvent(e) {
             ${createInputSring("text", "Грамовка", generationId(), "productWeiht")}
             ${createInputSring("text", "Опис продукту", generationId(), "description")}
             ${createInputSring("text", "Склад", generationId(), "ingredients")}
-            ${createInputSring("text", "Вартість продукту", generationId(), "price")}
+            ${createInputSring("number", "Вартість продукту", generationId(), "price")}
+            ${createInputSring("number", "Кількість продукту", generationId(), "productQuantity")}
             ${createInputSring("text", "Ключеві слова для пошуку. Розділяти комою", generationId(), "keywords")}
             ${createInputSring("url", "Забраження продукту", generationId(), "productimageUrl")}
         </form>
@@ -152,6 +153,7 @@ function saveData() {
                 price: "number",
                 keywords: "string array",
                 productimageUrl: "string",
+                productQuantity: "number"
             };
 
             inputs.forEach(e => {
@@ -168,6 +170,7 @@ function saveData() {
                 obj.price,
                 obj.keywords,
                 obj.productimageUrl,
+                obj.productQuantity,
                 dateNow,
                 generationId));
 

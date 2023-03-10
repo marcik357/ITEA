@@ -91,7 +91,7 @@ function newSaveProductInfo(newObj, oldObj) {
                 return
             case "productName": obj.productName = input.value;
                 return
-            case "productQuantity": obj.productQuantity = input.value;
+            case "productQuantity": obj.productQuantity = +input.value;
                 return
             case "keywords": obj.keywords = input.value.split(',');
                 return

@@ -97,6 +97,8 @@ function newSaveProductInfo(newObj, oldObj) {
                 return
             case "productimageUrl": obj.productimageUrl = input.value;
                 return
+            case "productQuantity": obj.productQuantity = +input.value;
+                return
         }
     })
 
