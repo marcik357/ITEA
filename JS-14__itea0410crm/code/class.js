@@ -26,15 +26,15 @@ class videoElementCRM {
 }
 
 class restElementCRM {
-    constructor(productName = "", productWeiht = "", ingredients = [], description = "", keywords = [], price = 0, productimageUrl = "../img/error.png", dateNow = () => {}, id = () => {}) {
+    constructor(productName = "", productWeiht = "", description = "", ingredients = [], price = 0, keywords = [], productimageUrl = "../img/error.png", dateNow = () => {}, id = () => {}) {
         this.id = id()
         this.date = dateNow()
         this.productName = productName;
         this.productWeiht = productWeiht;
-        this.ingredients = ingredients.split(",");
         this.description = description;
-        this.keywords = keywords.split(",");
+        this.ingredients = ingredients.split(",");
         this.price = price;
+        this.keywords = keywords.split(",");
         this.productimageUrl = productimageUrl;
         this.status = false
     }

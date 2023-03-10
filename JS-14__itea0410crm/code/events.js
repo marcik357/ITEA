@@ -75,10 +75,10 @@ function changeCategoryEvent(e) {
         <form>
             ${createInputSring("text", "Назва Страви", generationId(), "productName")}
             ${createInputSring("text", "Грамовка", generationId(), "productWeiht")}
-            ${createInputSring("text", "Склад", generationId(), "ingredients")}
             ${createInputSring("text", "Опис продукту", generationId(), "description")}
-            ${createInputSring("text", "Ключеві слова для пошуку. Розділяти комою", generationId(), "keywords")}
+            ${createInputSring("text", "Склад", generationId(), "ingredients")}
             ${createInputSring("text", "Вартість продукту", generationId(), "price")}
+            ${createInputSring("text", "Ключеві слова для пошуку. Розділяти комою", generationId(), "keywords")}
             ${createInputSring("url", "Забраження продукту", generationId(), "productimageUrl")}
         </form>
         `)
@@ -146,10 +146,10 @@ function saveData() {
             const obj = {
                 productName: "string",
                 productWeiht: "number",
-                ingredients: "string array",
                 description: "string",
-                keywords: "string array",
+                ingredients: "string array",
                 price: "number",
+                keywords: "string array",
                 productimageUrl: "string",
             };
 
@@ -162,10 +162,10 @@ function saveData() {
             rest.push(new restElementCRM(
                 obj.productName,
                 obj.productWeiht,
-                obj.ingredients,
                 obj.description,
-                obj.keywords,
+                obj.ingredients,
                 obj.price,
+                obj.keywords,
                 obj.productimageUrl,
                 dateNow,
                 generationId));

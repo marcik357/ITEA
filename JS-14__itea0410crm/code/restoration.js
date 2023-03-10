@@ -6,15 +6,19 @@ import { modalClose, modalSave } from "./var.js";
 function showRestoranMenu(arr = []) {
     //Знайшли tbody для виводу інформації по позиціям 
     const tbody = document.querySelector("tbody");
+    tbody.innerHTML = "";
 
-    arr.forEach(function ({productName, quantity, price, status, date, id}, i) {
+    arr.forEach(function ({ productName, productWeiht, description, ingredients, price, keywords, status, date, id }, i) {
         //Назва	Залишок	Ціна	Редагувати	Статус	Дата додавання	Видалити
         const tr = createHTMLElement("tr");
         const element = [
             createHTMLElement("td", undefined, i + 1),
             createHTMLElement("td", undefined, productName),
-            createHTMLElement("td", undefined, quantity),
+            createHTMLElement("td", undefined, productWeiht),
+            createHTMLElement("td", undefined, description),
+            createHTMLElement("td", undefined, ingredients),
             createHTMLElement("td", undefined, price),
+            createHTMLElement("td", undefined, keywords),
             createHTMLElement("td", undefined, `<span data-key="${id}" class="icon">&#9998;</span>`, undefined, editProductRestoranEvent),
             createHTMLElement("td", undefined, status ? "<span class='icon green'>&#10004;</span>" : "<span class='icon red'>&#10008;</span>"),
             createHTMLElement("td", undefined, date),
@@ -79,15 +83,19 @@ function newSaveProductInfo(newObj, oldObj) {
 
     inputs.forEach(input => {
         switch (input.key) {
-            case "porductPrice": obj.porductPrice = input.value;
-                return
-            case "productDescription": obj.productDescription = input.value;
-                return
-            case "productImage": obj.productImage = input.value;
-                return
             case "productName": obj.productName = input.value;
                 return
-            case "productQuantity": obj.productQuantity = input.value;
+            case "productWeiht": obj.productWeiht = input.value;
+                return
+            case "description": obj.description = input.value;
+                return
+            case "ingredients": obj.ingredients = input.value.split(',');
+                return
+            case "price": obj.price = input.value;
+                return
+            case "keywords": obj.keywords = input.value.split(',');
+                return
+            case "productimageUrl": obj.productimageUrl = input.value;
                 return
         }
     })
