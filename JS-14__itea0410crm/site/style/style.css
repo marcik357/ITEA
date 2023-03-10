@@ -49,6 +49,7 @@ ul li:hover a {
 }
 
 .video-box,
+.rest-box,
 .store-box {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -62,6 +63,7 @@ ul li:hover a {
 }
 
 .video-box>*,
+.rest-box>*,
 .store-box>* {
     padding: 0.5rem;
     min-width: 25%;
@@ -74,7 +76,8 @@ ul li:hover a {
     width: 100%
 }
 
-.store-box img {
+.store-box img,
+.rest-box img {
     width: 100%;
     height: 250px;
     object-fit: contain;

@@ -103,6 +103,7 @@ function newSaveProductInfo(newObj, oldObj) {
     })
 
     obj.productQuantity > 0 ? obj.status = true : obj.status = false;
+    obj.productimageUrl === '' ? obj.productimageUrl = "../assets/img/error.png" : obj.productimageUrl = obj.productimageUrl;
 
     const rest = JSON.parse(localStorage.restorationBD);
     rest.splice(rest.findIndex(el => el.id === oldObj.id), 1, obj);
