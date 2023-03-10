@@ -98,6 +98,7 @@ function newSaveProductInfo(newObj, oldObj) {
         }
     })
     obj.productQuantity > 0 ? obj.status = true : obj.status = false;
+    obj.productImage === '' ? obj.productImage = "../assets/img/error.png" : obj.productImage = obj.productImage;
     const store = JSON.parse(localStorage.storeBD);
     store.splice(store.findIndex(el => el.id === oldObj.id), 1, obj);
     localStorage.storeBD = JSON.stringify(store);
