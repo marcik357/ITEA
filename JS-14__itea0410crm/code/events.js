@@ -53,9 +53,10 @@ function changeCategoryEvent(e) {
         modal__body.insertAdjacentHTML("beforeend", `
        <form>
         ${createInputSring("text", "Назва продукту", generationId(), "productName")}
+        ${createInputSring("number", "Кількість продукту", generationId(), "productQuantity")}
         ${createInputSring("number", "Вартість продукту", generationId(), "porductPrice")}
-        ${createInputSring("url", "Картинка продукту", generationId(), "productImage")}
         ${createInputSring("text", "Опис продукту", generationId(), "productDescription")}
+        ${createInputSring("url", "Картинка продукту", generationId(), "productImage")}
         ${createInputSring("text", "Ключеві слова для пошуку. Розділяти комою", generationId(), "keywords")}
        </form>
        `)
@@ -109,7 +110,7 @@ function saveData() {
                 obj.porductPrice,
                 obj.productImage,
                 obj.productDescription,
-                undefined,
+                obj.productQuantity,
                 obj.keywords,
                 dateNow,
                 generationId));

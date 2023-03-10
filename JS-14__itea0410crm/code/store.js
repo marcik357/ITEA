@@ -2,14 +2,13 @@ import { hideModalEvent, showModalEvent } from "./events.js";
 import { createHTMLElement, createEditProductInput } from "./functions.js";
 import { modalClose, modalSave } from "./var.js";
 
-//console.log(JSON.parse(localStorage.restorationBD));
-
 //Вивід на сторінку позицій меню
 function showStoreProduct(arr = []) {
     //Знайшли tbody для виводу інформації по позиціям 
     const tbody = document.querySelector("tbody");
+    tbody.innerHTML = "";
 
-    arr.forEach(function ({ productName, productQuantity, porductPrice, status, date, id }, i) {
+    arr.forEach(function ({ productName, productQuantity, porductPrice, productDescription, keywords, status, date, id }, i) {
         //#	Назва	Залишок	Ціна	Редагувати	Статус	Дата додавання	Видалити
         const tr = createHTMLElement("tr");
         const element = [
@@ -17,6 +16,8 @@ function showStoreProduct(arr = []) {
             createHTMLElement("td", undefined, productName),
             createHTMLElement("td", undefined, productQuantity),
             createHTMLElement("td", undefined, porductPrice),
+            createHTMLElement("td", undefined, productDescription),
+            createHTMLElement("td", undefined, keywords),
             createHTMLElement("td", undefined, `<span data-key="${id}" class="icon">&#9998;</span>`, undefined, editProductStoreEvent),
             createHTMLElement("td", undefined, status ? "<span class='icon green'>&#10004;</span>" : "<span class='icon red'>&#10008;</span>"),
             createHTMLElement("td", undefined, date),
@@ -29,7 +30,6 @@ function showStoreProduct(arr = []) {
 
 // Читаємо з localStorage
 if (localStorage.storeBD) {
-    console.log('object');
     showStoreProduct(JSON.parse(localStorage.storeBD));
 }
 
@@ -92,6 +92,8 @@ function newSaveProductInfo(newObj, oldObj) {
             case "productName": obj.productName = input.value;
                 return
             case "productQuantity": obj.productQuantity = input.value;
+                return
+            case "keywords": obj.keywords = input.value.split(',');
                 return
         }
     })

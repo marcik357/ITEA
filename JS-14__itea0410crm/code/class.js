@@ -1,5 +1,5 @@
 class StoreElementCRM {
-    constructor (productName = "", porductPrice = 0, productImage = "/img/error.png", productDescription = "", productQuantity = 0, keywords = [], dateNow = () => {}, id = () => {}) {
+    constructor(productName = "", porductPrice = 0, productImage = "../site/assets/img/error.png", productDescription = "", productQuantity = 0, keywords = [], dateNow = () => {}, id = () => {}) {
         this.id = id()
         this.date = dateNow()
         this.productName = productName;
@@ -13,7 +13,7 @@ class StoreElementCRM {
 }
 
 class videoElementCRM {
-    constructor(productName = "", poster = '../img/error.png', url = "", description = "", keywords = [], dateNow = () => {}, id = () => {}) {
+    constructor(productName = "", poster = '../site/assets/img/error.png', url = "", description = "", keywords = [], dateNow = () => {}, id = () => {}) {
         this.id = id()
         this.date = dateNow()
         this.productName = productName;
@@ -26,7 +26,7 @@ class videoElementCRM {
 }
 
 class restElementCRM {
-    constructor(productName = "", productWeiht = "", description = "", ingredients = [], price = 0, keywords = [], productimageUrl = "../img/error.png", dateNow = () => {}, id = () => {}) {
+    constructor(productName = "", productWeiht = "", description = "", ingredients = [], price = 0, keywords = [], productimageUrl = "../site/assets/img/error.png", dateNow = () => {}, id = () => {}) {
         this.id = id()
         this.date = dateNow()
         this.productName = productName;
