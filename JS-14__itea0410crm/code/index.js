@@ -2,6 +2,9 @@ import { getLogin, getPassword, modalClose, modalSave } from "./var.js";
 import { changeInputEvent, userLoginEvent, showModalEvent, hideModalEvent, saveData, exportDataEvent } from "./events.js";
 import { req, categorySelect } from "./functions.js";
 
+const EXPORT = document.querySelector("#export");
+const REQ = document.getElementById("req");
+
 if (!sessionStorage.isLogin && !document.location.pathname.includes("/authorization")) {
     document.location = "/authorization";
 }
