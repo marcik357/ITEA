@@ -15,7 +15,7 @@ export function addIteams() {
 
     let storeBD = []
     storeBD.push(new StoreElementCRM('Ніж', 52, "https://img.moyo.ua/img/gallery/4913/82/1148248_middle.jpg?1619442572", 'металевий кухонний ніж', 0, 'металевий,кухонний,ніж,короткий ніж', dateNow, generationId));
-    storeBD.push(new StoreElementCRM('Каструля', 340, "https://cdn.27.ua/799/f5/6a/914794_2.jpeg", 'металева каструля на 3л', 0, 'металева,каструля,3л,кухня', dateNow, generationId));
+    storeBD.push(new StoreElementCRM('Каструля', 340, "https://cdn.27.ua/799/f5/6a/914794_2.jpeg", 'металева каструля на 3л', 100, 'металева,каструля,3л,кухня', dateNow, generationId));
     storeBD.push(new StoreElementCRM('Lenovo ideaPad 5 pro 16`', 34000, '../assets/img/error.png', 'ноутбук Lenovo ideaPad 5 pro 16`', 0, 'Lenovo,ideaPad 5 pro,16`,ноутбук', dateNow, generationId));
     localStorage.storeBD = JSON.stringify(storeBD);
 

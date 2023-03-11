@@ -17,7 +17,7 @@ class videoElementCRM {
         this.id = id()
         this.date = dateNow()
         this.productName = productName;
-        this.poster = poster === '' ? '../assets/img/error.png' : poster;
+        this.poster = poster;
         this.url = url;
         this.description = description;
         this.keywords = keywords.split(",");
