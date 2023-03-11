@@ -6,7 +6,7 @@ if(!Array.isArray(store)){
 
 const storeEl = store.map(({ productName, id, porductPrice, productImage, productDescription, keywords = []}) => {
     return `
-    <div class="store-iteam">
+    <div class="store">
     <img src="${productImage}">
     <h3 class="store-name">${productName}</h3>
     <p class="store-description">

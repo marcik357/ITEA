@@ -51,6 +51,15 @@ ul li:hover a {
 .video-box,
 .rest-box,
 .store-box {
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+    gap: 1rem;
+}
+
+/* .video-box,
+.rest-box,
+.store-box {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -60,25 +69,50 @@ ul li:hover a {
     -ms-flex-pack: space-evenly;
     justify-content: space-evenly;
     gap: 1.5rem;
-}
+} */
 
 .video-box>*,
 .rest-box>*,
 .store-box>* {
-    padding: 0.5rem;
-    min-width: 25%;
-    max-width: 35%;
     border: 1px solid black;
-    min-height: 350px
+    border-radius: 10px;
+    min-height: 300px;
+    overflow: hidden;
+    background-color: #eee;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
 }
 
 .video-box video {
     width: 100%
 }
 
+.video>*:last-child,
+.rest>*:last-child {
+    margin-top: auto;
+}
+
+.video .badge,
+.rest .badge,
+.store .badge {
+    padding: 0.5rem;
+}
+
+* .badge:not(:last-child) {
+    margin: 0 5px 5px 0;
+}
+
+.video :not(video),
+.rest> :not(img),
+.store>:not(img) {
+    padding: 0 1rem;
+}
+
 .store-box img,
 .rest-box img {
     width: 100%;
     height: 250px;
-    object-fit: contain;
+    object-fit: cover;
 }

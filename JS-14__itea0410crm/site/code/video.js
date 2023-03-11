@@ -7,10 +7,10 @@ if(!Array.isArray(video)){
 const videoEl = video.map(({ productName, id, url, description, keywords = [], poster }) => {
     return `
     <div class="video">
-    <h3 class="video-name">${productName}</h3>
     <video id="${id}" controls poster="${poster}">
-        ${url.startsWith("http") ? `<source src="${url}">` : `<source src="../assets/video/${url}">`}
+    ${url.startsWith("http") ? `<source src="${url}">` : `<source src="../assets/video/${url}">`}
     </video>
+    <h3 class="video-name">${productName}</h3>
     <p class="video-description">
     ${description}
     </p>
