@@ -85,7 +85,7 @@ function newSaveProductInfo(newObj, oldObj) {
         switch (input.key) {
             case "productName": obj.productName = input.value;
                 return
-            case "productWeiht": obj.productWeiht = input.value;
+            case "productWeiht": obj.productWeiht = +input.value;
                 return
             case "description": obj.description = input.value;
                 return

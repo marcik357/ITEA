@@ -75,7 +75,7 @@ function changeCategoryEvent(e) {
         modal__body.insertAdjacentHTML("beforeend", `
         <form>
             ${createInputSring("text", "Назва Страви", generationId(), "productName")}
-            ${createInputSring("text", "Грамовка", generationId(), "productWeiht")}
+            ${createInputSring("number", "Грамовка", generationId(), "productWeiht")}
             ${createInputSring("text", "Опис продукту", generationId(), "description")}
             ${createInputSring("text", "Склад", generationId(), "ingredients")}
             ${createInputSring("number", "Вартість продукту", generationId(), "price")}
@@ -102,6 +102,7 @@ function saveData() {
 
             inputs.forEach(e => {
                 obj[e.dataset.type] = e.value;
+                if (e.type === 'number') obj[e.dataset.type] = +e.value;
                 e.value = ''
             })
 
@@ -129,6 +130,7 @@ function saveData() {
 
             inputs.forEach(e => {
                 obj[e.dataset.type] = e.value;
+                if (e.type === 'number') obj[e.dataset.type] = +e.value;
                 e.value = ''
             })
 
@@ -158,6 +160,7 @@ function saveData() {
 
             inputs.forEach(e => {
                 obj[e.dataset.type] = e.value;
+                if (e.type === 'number') obj[e.dataset.type] = +e.value;
                 e.value = ''
             })
 

@@ -8,14 +8,14 @@ function showStoreProduct(arr = []) {
     const tbody = document.querySelector("tbody");
     tbody.innerHTML = "";
 
-    arr.forEach(function ({ productName, productQuantity, porductPrice, productDescription, keywords, status, date, id }, i) {
+    arr.forEach(function ({ productName, productQuantity, productPrice, productDescription, keywords, status, date, id }, i) {
         //#	Назва	Залишок	Ціна	Редагувати	Статус	Дата додавання	Видалити
         const tr = createHTMLElement("tr");
         const element = [
             createHTMLElement("td", undefined, i + 1),
             createHTMLElement("td", undefined, productName),
             createHTMLElement("td", undefined, productQuantity),
-            createHTMLElement("td", undefined, porductPrice),
+            createHTMLElement("td", undefined, productPrice),
             createHTMLElement("td", undefined, productDescription),
             createHTMLElement("td", undefined, keywords),
             createHTMLElement("td", undefined, `<span data-key="${id}" class="icon">&#9998;</span>`, undefined, editProductStoreEvent),
@@ -83,7 +83,7 @@ function newSaveProductInfo(newObj, oldObj) {
 
     inputs.forEach(input => {
         switch (input.key) {
-            case "porductPrice": obj.porductPrice = input.value;
+            case "porductPrice": obj.productPrice = input.value;
                 return
             case "productDescription": obj.productDescription = input.value;
                 return

@@ -1,6 +1,7 @@
 import { getLogin, getPassword, modalClose, modalSave } from "./var.js";
 import { changeInputEvent, userLoginEvent, showModalEvent, hideModalEvent, saveData, exportDataEvent } from "./events.js";
 import { req, categorySelect } from "./functions.js";
+import { addIteams } from "./code.js";
 
 const EXPORT = document.querySelector("#export");
 const REQ = document.getElementById("req");
@@ -51,8 +52,6 @@ try {
 } catch (e) {
 }
 
-console.log(getLogin, getPassword);
-
 if (!localStorage.storeBD) {
     localStorage.storeBD = JSON.stringify([])
 }
@@ -63,3 +62,7 @@ if (!localStorage.restorationBD) {
     localStorage.restorationBD = JSON.stringify([])
 }
 
+// for easy dev access
+console.log(getLogin, getPassword);
+// add example iteams
+if (localStorage.storeBD === '[]')addIteams()
